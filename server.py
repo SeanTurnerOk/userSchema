@@ -20,5 +20,22 @@ def creater():
     }
     User.save(data)
     return redirect('/')
+@app.route('/showOne/<x>')
+def showOne(x):
+    user=User.getById(x)
+    return render_template('showOne.html', user=user)
+@app.route('/editUser/<x>')
+def editUser(x):
+    user=User.getById(x)
+    return render_template('editUser.html', user=user)
+@app.route('/editingUser/<x>', methods=['POST'])
+def editingUser(x):
+    User.editById(x,request.form)
+    return redirect('/')
+
+@app.route('/deleteUser/<x>')
+def delUser(x):
+    User.deleteById(x)
+    return redirect('/')
 if __name__=='__main__':
     app.run(debug=True)
