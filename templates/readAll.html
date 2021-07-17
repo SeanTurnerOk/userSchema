@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        {%for i in allUsers%}
+        <tr>
+            <td>{{i['id']}}</td>
+            <td>{{i['first_name']}} {{i['last_name']}}</td>
+            <td>{{i['email']}}</td>
+            <td>{{i['created_at']}}</td>
+        </tr>
+            {%endfor%}
+    </table>
+    <a href="create"> Create user</a>
+</body>
+</html>
